@@ -1,0 +1,7 @@
+<h3>Questão: {{ questao.questao_texto }}</h3>
+<form action="{% url 'votacao:gravaropcao' questao.id %}" method="post">
+  {% csrf_token %}
+  <label for="fnovaopcao">Nova opção:</label><br>
+  <input type="text" id="fnovaopcao" name="fnovaopcao"><br>
+  <input type="submit" value="Gravar opção e voltar à questão">
+</form>
