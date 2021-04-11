@@ -1,0 +1,15 @@
+<h3>Selecione uma questão para apagar</h3>
+{% if error_message %}
+ <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+<form action="{% url 'votacao:apagarquestao' %}" method="post">
+ {% csrf_token %}
+ {% for questao in question_list %}
+ <input type="radio" name="questao" id="questao{{ forloop.counter }}" value="{{ questao.id }}" />
+ <label for="questao{{ forloop.counter }}">
+ {{ questao.questao_texto }}
+ </label>
+ <br />
+ {% endfor %}
+ <input type="submit" value="Apagar questão e voltar à lista" />
+</form>

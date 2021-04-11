@@ -1,0 +1,7 @@
+<h1>Nova Questão</h1>
+<form action="{% url 'votacao:gravarquestao' %}" method="post">
+  {% csrf_token %}
+  <label for="fnovaquestao">Questão:</label><br>
+  <input type="text" id="fnovaquestao" name="fnovaquestao"><br>
+  <input type="submit" value="Gravar questão e voltar à lista">
+</form>

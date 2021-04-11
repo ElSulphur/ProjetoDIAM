@@ -1,0 +1,30 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css"
+    href="{% static 'votacao/joel.css' %}" />
+
+
+{% if latest_question_list %}
+<ul>
+    {% for questao in latest_question_list %}
+    <li>
+        <a href="{% url 'votacao:detalhe' questao.id %}"
+            class="questao">
+           {{ questao.questao_texto }}
+        </a>
+        <br> <br>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>Nao ha questoes disponiveis.</p>
+{% endif %}
+<p>
+ <a href="{%url 'votacao:novaquestao' %}"> Nova questão</a>
+</p>
+<br> <br>
+<p>
+ <a href="{%url 'votacao:listarquestao' %}"> Apagar questão</a>
+</p>
+<br> <br>
+<!--<img src="{% static 'votacao/images/iscte.png' %}">
