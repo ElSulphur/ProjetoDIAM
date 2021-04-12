@@ -1,7 +1,7 @@
 {% load static %}
 
-<link rel="stylesheet" type="text/css"
-    href="{% static 'projeto/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/index.css' %}" />
 
 <div class="header">
     <a href="{% url 'projeto:index' %}" class="logo">NEEDINS</a>
@@ -19,6 +19,10 @@
     <p>NEEDINS | Copyright 2021</p>
 </div>
 
+
+<img src="{% static 'projeto/images/needins2.png' %}" alt="Paris" class="center">
+
+
 <ul>
  <li><a href="{%url 'projeto:eventos' %}"> Eventos </a></li>
  <li><a href="{%url 'projeto:sobrenos' %}"> Sobre nós </a></li>
@@ -26,3 +30,4 @@
  <li><a href="{%url 'projeto:login' %}"> Login </a></li>
  <li><a href="{%url 'projeto:registo' %}"> Registo </a></li>
 </ul>
+
