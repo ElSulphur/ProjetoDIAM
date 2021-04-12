@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
@@ -11,7 +11,9 @@ def index(request):
     return render(request, 'projeto/index.html')
 
 def eventos(request):
-    return render(request, 'projeto/eventos.html')
+    latest_question_list = Evento.objects.order_by('data')
+    context = {'latest_question_list': latest_question_list}
+    return render(request, 'projeto/eventos.html',context)
 
 def criar_evento(request):
     return render(request, 'projeto/criar_evento.html')
@@ -24,6 +26,10 @@ def guardar_evento(request):
     new_evento.data = request.POST['data']
     new_evento.save()
     return HttpResponseRedirect(reverse('projeto:eventos',))
+
+def detalhe_evento(request, evento_id):
+    evento = get_object_or_404(Evento, pk=evento_id)
+    return render(request, 'projeto/detalhe_evento.html', {'evento': evento})
 
 def sobrenos(request):
     return render(request, 'projeto/sobre_nos.html')
@@ -49,6 +55,8 @@ def registar(request):
         user = User.objects.create_user(username,email,password)
         user.save()
     return HttpResponseRedirect(reverse('projeto:index', ))
+
+
 
 
 

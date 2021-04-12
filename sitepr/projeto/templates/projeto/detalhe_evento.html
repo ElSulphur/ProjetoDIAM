@@ -20,18 +20,11 @@
     <p>NEEDINS | Copyright 2021</p>
 </div>
 
-{% if latest_question_list %}
-<ul>
- {% for evento in latest_question_list %}
- <li>
-  <a href="{% url 'projeto:detalhe_evento' evento.id %}"> {{ evento.nome }} </a>
- </li>
- {% endfor %}
-</ul>
-{% else %}
-<p>Nao ha eventos disponiveis.</p>
-{% endif %}
 
-<p>
- <a href="{%url 'projeto:criar_evento' %}"> Criar Evento </a>
-</p>
+<h2>{{ evento.nome }}</h2>
+
+<p> Descrição: {{evento.descricao}} </p>
+
+<p> Local: {{evento.local}} </p>
+
+<p> Data: {{evento.data}} </p>

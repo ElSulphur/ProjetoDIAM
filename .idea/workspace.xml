@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d118a07-f89c-4848-b44c-dfe2c7ac2c34" name="Default Changelist" comment="" />
+    <list default="true" id="8d118a07-f89c-4848-b44c-dfe2c7ac2c34" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitepr/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/criar_evento.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/criar_evento.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/eventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/eventos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/registo.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/registo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitepr/projeto/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitepr/projeto/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
