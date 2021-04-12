@@ -1,11 +1,10 @@
-<!DOCTYPE html>
 {% load static %}
 
-<link rel="stylesheet" type="text/css"
-    href="{% static 'projeto/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/registo.css' %}" />
 
 
-  <div class="header">
+<div class="header">
     <a href="{% url 'projeto:index' %}" class="logo">NEEDINS</a>
     <div class="header-right">
         <a href="{% url 'projeto:index' %}">INÍCIO</a>
@@ -16,7 +15,31 @@
         <a class="active" href="{% url 'projeto:registo' %}">REGISTAR</a>
     </div>
 </div>
-  
+
 <div class="footer">
     <p>NEEDINS | Copyright 2021</p>
 </div>
+
+<form action="{% url 'projeto:registar' %}" method="post">
+    <div class="container">
+    {% csrf_token %}
+    <h1>Registo </h1>
+    <input type="text" placeholder="Username" id="username" name="username"><br>
+    <br>
+    <input type="text" placeholder="Insere o e-mail" id="email" name="email"><br>
+    <br>
+    <input type="text" placeholder="Insere a Palavra-passe" id="password" name="password"><br>
+    <br>
+    <input type="text" placeholder="Confirma a Palavra-passe" id="confirm_password" name="confirm_password"><br>
+    <br>
+    
+    {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+
+
+
+    <input type="submit" class="registerbtn" value="Continuar">
+
+    </div>
+</form>
