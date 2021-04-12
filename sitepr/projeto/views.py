@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
@@ -35,6 +36,20 @@ def login(request):
 
 def registo(request):
     return render(request, 'projeto/registo.html')
+
+
+def registar(request):
+    username = request.POST['username']
+    email = request.POST['email']
+    password = request.POST['password']
+    confirm_password = request.POST['confirm_password']
+    if password != confirm_password:
+        return render(request, 'projeto/registo.html', {'error_message': "As passwords não coincidem"})
+    else:
+        user = User.objects.create_user(username,email,password)
+        user.save()
+    return HttpResponseRedirect(reverse('projeto:index', ))
+
 
 
 

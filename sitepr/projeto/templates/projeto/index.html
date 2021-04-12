@@ -1,3 +1,25 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css"
+    href="{% static 'projeto/style.css' %}" />
+
+
+  <div class="header">
+    <a href="{% url 'projeto:index' %}" class="logo">NEEDINS</a>
+    <div class="header-right">
+        <a class="active" href="{% url 'projeto:index' %}">INÍCIO</a>
+        <a href="{% url 'projeto:eventos' %}">EVENTOS</a>
+        <a href="{% url 'projeto:parceiros' %}">PARCEIROS</a>
+        <a href="{% url 'projeto:sobrenos' %}">SOBRE NÓS</a>
+        <a href="{% url 'projeto:login' %}">LOGIN</a>
+        <a href="{% url 'projeto:registo' %}">REGISTAR</a>
+    </div>
+</div>
+
+<div class="footer">
+    <p>NEEDINS | Copyright 2021</p>
+</div>
+
 <ul>
  <li><a href="{%url 'projeto:eventos' %}"> Eventos </a></li>
  <li><a href="{%url 'projeto:sobrenos' %}"> Sobre nós </a></li>
