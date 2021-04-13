@@ -73,9 +73,9 @@ def registar(request):
     password = request.POST['password']
     confirm_password = request.POST['confirm_password']
     if username_exists(username):
-        return render(request, 'projeto/registo.html', {'error_message': "Já existe um utilizador com este username"})
+        return render(request, 'projeto/registo.html', {'error_message': "Este utilizador já está registado"})
     elif email_exists(email):
-        return render(request, 'projeto/registo.html', {'error_message': "Já existe um utilizador com este e-m0ail"})
+        return render(request, 'projeto/registo.html', {'error_message': "Este utilizador já está registado"})
     elif password != confirm_password:
         return render(request, 'projeto/registo.html', {'error_message': "As passwords não coincidem"})
     else:
