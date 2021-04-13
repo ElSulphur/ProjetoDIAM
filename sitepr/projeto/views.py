@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 from .models import Evento
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 #PAGINA INICIAL
@@ -45,8 +45,21 @@ def parceiros(request):
     return render(request, 'projeto/parceiros.html')
 
 #PAGINA LOGIN
-def login(request):
+def user_login(request):
     return render(request, 'projeto/login.html')
+
+#DAR LOGIN
+def logon(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        # direccionar para página de sucesso
+        return render(request, 'projeto/index_login.html')
+    else:
+        # direccionar para página de insucesso
+        return render(request, 'projeto/login.html', {'error_message': "Utilizador não existe"})
 
 #PAGINA REGISTAR
 def registo(request):
@@ -82,6 +95,8 @@ def registar(request):
         user = User.objects.create_user(username,email,password)
         user.save()
     return HttpResponseRedirect(reverse('projeto:index', ))
+
+
 
 
 
