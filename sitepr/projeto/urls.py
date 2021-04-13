@@ -10,7 +10,8 @@ urlpatterns = [
  path("parceiros" , views.parceiros, name="parceiros"),
  path("login" , views.login, name="login"),
  path("registo" , views.registo, name="registo"),
- path("criar_evento" , views.criar_evento, name="criar_evento"),
+ path("eventos/criar_evento" , views.criar_evento, name="criar_evento"),
  path("guardar_evento" , views.guardar_evento, name="guardar_evento"),
  path("registar" , views.registar, name="registar"),
+ path("eventos/<int:evento_id>" , views.detalhe_evento, name="detalhe_evento"),
 ]

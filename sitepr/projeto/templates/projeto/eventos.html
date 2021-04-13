@@ -1,7 +1,7 @@
 {% load static %}
 
-<link rel="stylesheet" type="text/css"
-    href="{% static 'projeto/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/eventos.css' %}" />
 
 
   <div class="header">
@@ -20,6 +20,27 @@
     <p>NEEDINS | Copyright 2021</p>
 </div>
 
+{% if latest_question_list %}
+<ul>
+ {% for evento in latest_question_list %}
+ <li>
+  <a href="{% url 'projeto:detalhe_evento' evento.id %}"> {{ evento.nome }} </a>
+ </li>
+ {% endfor %}
+</ul>
+{% else %}
+<p>Nao ha eventos disponiveis.</p>
+{% endif %}
+
+{% for evento in latest_question_list %}
+    <div class="container">
+        <img src="{% static 'projeto/images/vodafone.png' %}" alt="Avatar" style="width:90px">
+        <p><span> {{ evento.nome }} </span></p>
+        <p> {{ evento.descricao }} </p>
+        <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="buttoninfo"> Informações </a>
+    </div>
+{% endfor %}
+
 <p>
- <a href="{%url 'projeto:criar_evento' %}"> Criar Evento </a>
+ <a href="{%url 'projeto:criar_evento' %}" class="button"> Criar Evento </a>
 </p>

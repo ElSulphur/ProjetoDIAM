@@ -8,20 +8,19 @@
     <a href="{% url 'projeto:index' %}" class="logo">NEEDINS</a>
     <div class="header-right">
         <a href="{% url 'projeto:index' %}">INÍCIO</a>
-        <a class="active" href="{% url 'projeto:eventos' %}">EVENTOS</a>
+        <a href="{% url 'projeto:eventos' %}">EVENTOS</a>
         <a href="{% url 'projeto:parceiros' %}">PARCEIROS</a>
         <a href="{% url 'projeto:sobrenos' %}">SOBRE NÓS</a>
         <a href="{% url 'projeto:login' %}">LOGIN</a>
         <a href="{% url 'projeto:registo' %}">REGISTAR</a>
     </div>
 </div>
-  
+
 <div class="footer">
     <p>NEEDINS | Copyright 2021</p>
 </div>
 
 <h1>Criar Evento</h1>
-
 <form action="{% url 'projeto:guardar_evento' %}" method="post">
   {% csrf_token %}
   <label for="nome_evento">Nome do Evento:</label>
@@ -34,7 +33,7 @@
     <input type="text" id="local" name="local"><br>
 <br>
      <label for="data"> Data: </label>
-    <input type="date" id="data" name="data"><br>
+    <input type="datetime-local" id="data" name="data"><br>
 <br>
 
 
