@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8d118a07-f89c-4848-b44c-dfe2c7ac2c34" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/registo.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/registo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/eventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/eventos.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +36,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sitepr/projeto/static/projeto/images" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
