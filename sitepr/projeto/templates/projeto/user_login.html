@@ -1,3 +1,4 @@
+  
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'projeto/style.css' %}" />
@@ -10,8 +11,8 @@
         <a href="{% url 'projeto:eventos' %}">EVENTOS</a>
         <a href="{% url 'projeto:parceiros' %}">PARCEIROS</a>
         <a href="{% url 'projeto:sobrenos' %}">SOBRE NÓS</a>
-        <a href="{% url 'projeto:user_login' %}">LOGIN</a>
-        <a href="{% url 'projeto:registo' %}">REGISTAR</a>
+        <a>PROFILE</a>
+
     </div>
 </div>
 
@@ -20,14 +21,4 @@
 </div>
 
 <!--<img src="{% static 'projeto/images/logoneedins.png' %}" alt="Paris"  width="40"  height="25" class="header a.logo"> -->
-<img src="{% static 'projeto/images/needins2.png' %}" alt="Imagem Central" class="center"> 
-
-
-<ul>
- <li><a href="{%url 'projeto:eventos' %}"> Eventos </a></li>
- <li><a href="{%url 'projeto:sobrenos' %}"> Sobre nós </a></li>
- <li><a href="{%url 'projeto:parceiros' %}"> Parceiros </a></li>
- <li><a href="{%url 'projeto:user_login' %}"> Login </a></li>
- <li><a href="{%url 'projeto:registo' %}"> Registo </a></li>
-</ul>
-
+<img src="{% static 'projeto/images/needins2.png' %}" alt="Imagem Central" class="center">
