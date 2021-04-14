@@ -9,7 +9,7 @@
 <ul>
  {% for questao in latest_question_list %}
  <li>
-  <a href="{% url 'votacao:detalhe' questao.id %}" class="questao"> {{ questao.questao_texto }} </a>
+  <a href="{% url 'votacao:detalhe' questao.id %}" class="button3"> {{ questao.questao_texto }} </a>
  </li>
  {% endfor %}
 </ul>

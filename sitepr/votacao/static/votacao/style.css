@@ -13,21 +13,26 @@ body {
 
 
 
-a:link, a:visited {
-  background-color: red;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+a.button3{
+display:inline-block;
+padding:0.3em 1.2em;
+margin:0 0.3em 0.3em 0;
+border-radius:2em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color:#FFFFFF;
+background-color:green;
+text-align:center;
+transition: all 0.2s;
 }
-
-a:hover {
- text-transform: uppercase;
- font-weight:bold;
- color:blue;
- background-color:yellow;
+a.button3:hover{
+background-color:#4095c6;
 }
-
-a:link.questao {color: white;}
-a:visited.questao {color: #0000ff;}
+@media all and (max-width:30em){
+a.button3{
+display:block;
+margin:0.2em auto;
+}
+}

@@ -15,4 +15,6 @@ urlpatterns = [
  path("registar" , views.registar, name="registar"),
  path("eventos/<int:evento_id>" , views.detalhe_evento, name="detalhe_evento"),
  path("logon" , views.logon, name="logon"),
+ path("profile" , views.profile, name="profile"),
+ path("logout" , views.logout_view, name="logout_view"),
 ]
