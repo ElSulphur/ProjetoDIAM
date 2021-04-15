@@ -1,5 +1,8 @@
 from django.urls import include, path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 app_name = 'projeto'
 urlpatterns = [
@@ -17,4 +20,10 @@ urlpatterns = [
  path("logon" , views.logon, name="logon"),
  path("profile" , views.profile, name="profile"),
  path("logout" , views.logout_view, name="logout_view"),
+ path('img_upload', views.img_upload, name='img_upload'),
+
 ]
+
+if settings.DEBUG:
+ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

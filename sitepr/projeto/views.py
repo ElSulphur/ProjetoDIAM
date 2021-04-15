@@ -5,6 +5,8 @@ from django.template import loader
 from django.urls import reverse
 from .models import Evento
 from django.contrib.auth import authenticate, login, logout
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 # Create your views here.
 
 #PAGINA INICIAL
@@ -85,6 +87,8 @@ def email_exists(email):
 
 #GUARDAR UM REGISTO = NOVO UTILIZADOR
 def registar(request):
+    first_name = request.POST['first_name']
+    last_name = request.POST['last_name']
     username = request.POST['username']
     email = request.POST['email']
     password = request.POST['password']
@@ -97,6 +101,8 @@ def registar(request):
         return render(request, 'projeto/registo.html', {'error_message': "As passwords não coincidem"})
     else:
         user = User.objects.create_user(username,email,password)
+        user.first_name = first_name
+        user.last_name = last_name
         user.save()
     return HttpResponseRedirect(reverse('projeto:index', ))
 
@@ -104,7 +110,14 @@ def profile(request):
     return render(request, 'projeto/profile.html',)
 
 
-
+def img_upload(request):
+ if request.method == 'POST' and request.FILES['myfile']:
+    myfile = request.FILES['myfile']
+    fs = FileSystemStorage()
+    filename = fs.save(myfile.name, myfile)
+    uploaded_file_url = fs.url(filename)
+    return render(request, 'projeto/img_upload.html', {'uploaded_file_url': uploaded_file_url})
+ return render(request, 'projeto/img_upload.html')
 
 
 
