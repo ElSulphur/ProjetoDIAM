@@ -4,21 +4,26 @@
 <link rel="stylesheet" type="text/css" href="{% static 'projeto/eventos.css' %}" />
 
 
-  <div class="header">
-    <a href="{% url 'projeto:index' %}" class="logo">NEEDINS</a>
-    <div class="header-right">
-        <a href="{% url 'projeto:index' %}">INÍCIO</a>
-        <a class="active" href="{% url 'projeto:eventos' %}">EVENTOS</a>
-        <a href="{% url 'projeto:parceiros' %}">PARCEIROS</a>
-        <a href="{% url 'projeto:sobrenos' %}">SOBRE NÓS</a>
+  <link rel="stylesheet" type="text/css" href="{% static 'projeto/header.css' %}" />
+
+<body>
+
+    <nav class="stroke">
+        <ul>
+        <li><a href="{% url 'projeto:index' %}">INÍCIO</a></li>
+        <li><a href="{% url 'projeto:eventos' %}">EVENTOS</a></li>
+        <li><a href="{% url 'projeto:parceiros' %}">PARCEIROS</a></li>
+        <li><a href="{% url 'projeto:sobrenos' %}">SOBRE NÓS</a></li>
         {% if request.user.is_authenticated %}
-        <a href="{% url 'projeto:profile' %}">PROFILE</a>
+        <li><a href="{% url 'projeto:profile' %}">PROFILE</a></li>
         {% else %}
-        <a href="{% url 'projeto:user_login' %}">LOGIN</a>
-        <a href="{% url 'projeto:registo' %}">REGISTAR</a>
+        <li><a href="{% url 'projeto:user_login' %}">LOGIN</a></li>
+        <li><a href="{% url 'projeto:registo' %}">REGISTAR</a></li>
         {% endif %}
-    </div>
-</div>
+        </ul>
+    </nav>
+
+</body>
 
 <div class="footer">
     <p>NEEDINS | Copyright 2021</p>
