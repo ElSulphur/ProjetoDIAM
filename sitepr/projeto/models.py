@@ -5,11 +5,13 @@ import datetime
 
 
 
+
 class Organizacao(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, )
     nome = models.CharField(max_length=200)
     descricao = models.CharField(max_length=1000)
     avatar = models.ImageField()
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True,)
+    is_organizacao = models.BooleanField(default=True)
     def __str__(self):
        return self.nome
 
@@ -22,3 +24,6 @@ class Evento(models.Model):
     organizacao = models.ForeignKey(Organizacao, on_delete=models.CASCADE)
     def __str__(self):
         return self.nome
+
+
+

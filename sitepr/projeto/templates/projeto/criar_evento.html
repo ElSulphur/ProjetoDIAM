@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" type="text/css"
     href="{% static 'projeto/style.css' %}" />
-
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/header.css' %}" />
 
  <body>
 
@@ -27,7 +27,7 @@
 </div>
 
 <h1>Criar Evento</h1>
-<form action="{% url 'projeto:guardar_evento' %}" method="post">
+<form action="{% url 'projeto:criar_evento' %}" method="post">
   {% csrf_token %}
   <label for="nome_evento">Nome do Evento:</label>
   <input type="text" id="nome_evento" name="nome_evento"><br>

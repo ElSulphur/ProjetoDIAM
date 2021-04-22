@@ -31,7 +31,7 @@
 </div>
 
 <div class="login-box">
-<form action="{% url 'projeto:registar' %}" method="post">
+<form action="{% url 'projeto:registo' %}" method="post">
 
     {% csrf_token %}
     <h2>Registo </h2>
@@ -64,7 +64,7 @@
     <input type="submit" class="registerbtn" value="Continuar">
 
 
-
+<a href="{% url 'projeto:registar_org' %}">Regsitar Organizacao</a>
 
 </form>
 </div>

@@ -2,13 +2,16 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'projeto/style.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'projeto/index.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/header_2.css' %}" />
 
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/header.css' %}" />
-
+<title>
+    Needins - Homepage
+</title>
 <body>
+    <header>
 
-    <nav class="stroke">
-        <ul>
+    <nav>
+        <ul class="nav__links">
         <li><a href="{% url 'projeto:index' %}">INÍCIO</a></li>
         <li><a href="{% url 'projeto:eventos' %}">EVENTOS</a></li>
         <li><a href="{% url 'projeto:parceiros' %}">PARCEIROS</a></li>
@@ -21,13 +24,15 @@
         {% endif %}
         </ul>
     </nav>
-
+    </header>
 </body>
 
-
+<div class="footer">
+    <p>NEEDINS | Copyright 2021</p>
+</div>
 
 <!--<img src="{% static 'projeto/images/logoneedins.png' %}" alt="Paris"  width="40"  height="25" class="header a.logo"> -->
 <img src="{% static 'projeto/images/logo needins.png' %}" alt="Imagem Central" class="center">
-
+<img src="{% static 'projeto/images/principal.jpeg' %}" alt="Imagem Central" class="center">
 
 <a href="{% url 'projeto:img_upload' %}">upload</a>

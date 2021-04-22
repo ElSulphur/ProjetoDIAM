@@ -1,4 +1,5 @@
 {% load static %}
+
 <link rel="stylesheet" type="text/css" href="{% static 'projeto/style.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'projeto/registo.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'projeto/login.css' %}" />
@@ -30,18 +31,28 @@
 </div>
 
 <div class="login-box">
-<form action="{% url 'projeto:user_login' %}" method="post">
+<form action="{% url 'projeto:registar_org' %}" method="post">
 
     {% csrf_token %}
-    <h2>Login </h2>
-
+    <h2>Registo </h2>
+    <div class="user-box">
+    <input type="text" placeholder="Nome da Organização" id="name_org" name="name_org">
+    </div>
+    <div class="user-box">
+    <input type="text" placeholder="Descrição da Organização" id="bio" name="bio">
+    </div>
     <div class="user-box">
     <input type="text" placeholder="Username" id="username" name="username">
     </div>
     <div class="user-box">
+    <input type="text" placeholder="Insere o e-mail" id="email" name="email">
+    </div>
+    <div class="user-box">
     <input type="password" placeholder="Insere a Palavra-passe" id="password" name="password">
     </div>
-
+    <div class="user-box">
+    <input type="password" placeholder="Confirma a Palavra-passe" id="confirm_password" name="confirm_password">
+    </div>
 
 
     {% if error_message %}

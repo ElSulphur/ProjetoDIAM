@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
-from .models import Evento
+from .models import Evento, Organizacao
 from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
@@ -21,17 +21,21 @@ def eventos(request):
 
 #BOTAO CRIAR EVENTO
 def criar_evento(request):
-    return render(request, 'projeto/criar_evento.html')
+    if request.method == "POST":
+        u = request.user
+        org = u.organizacao
+        new_evento = Evento()
+        new_evento.nome = request.POST['nome_evento']
+        new_evento.descricao = request.POST['descricao_evento']
+        new_evento.local = request.POST['local']
+        new_evento.data = request.POST['data']
+        new_evento.organizacao = org
+        new_evento.save()
+        return HttpResponseRedirect(reverse('projeto:eventos', ))
+    else:
+        return render(request, 'projeto/criar_evento.html')
 
-#GUARDAR UM EVENTO
-def guardar_evento(request):
-    new_evento = Evento()
-    new_evento.nome = request.POST['nome_evento']
-    new_evento.descricao = request.POST['descricao_evento']
-    new_evento.local = request.POST['local']
-    new_evento.data = request.POST['data']
-    new_evento.save()
-    return HttpResponseRedirect(reverse('projeto:eventos',))
+
 
 #ABRIR OS DETALHES DE UM EVENTO
 def detalhe_evento(request, evento_id):
@@ -48,20 +52,20 @@ def parceiros(request):
 
 #PAGINA LOGIN
 def user_login(request):
-    return render(request, 'projeto/login.html')
-
-#DAR LOGIN
-def logon(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        # direccionar para página de sucesso
-        return render(request, 'projeto/index.html')
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            # direccionar para página de sucesso
+            return render(request, 'projeto/index.html')
+        else:
+            # direccionar para página de insucesso
+            return render(request, 'projeto/login.html', {'error_message': "Utilizador não existe"})
     else:
-        # direccionar para página de insucesso
-        return render(request, 'projeto/login.html', {'error_message': "Utilizador não existe"})
+        return render(request, 'projeto/login.html')
+
 
 def logout_view(request):
     logout(request)
@@ -69,7 +73,27 @@ def logout_view(request):
 
 #PAGINA REGISTAR
 def registo(request):
-    return render(request, 'projeto/registo.html')
+    if request.method == "POST":
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
+        if username_exists(username):
+            return render(request, 'projeto/registo.html', {'error_message': "Este utilizador já está registado"})
+        elif email_exists(email):
+            return render(request, 'projeto/registo.html', {'error_message': "Este utilizador já está registado"})
+        elif password != confirm_password:
+            return render(request, 'projeto/registo.html', {'error_message': "As passwords não coincidem"})
+        else:
+            user = User.objects.create_user(username, email, password)
+            user.first_name = first_name
+            user.last_name = last_name
+            user.save()
+        return HttpResponseRedirect(reverse('projeto:index', ))
+    else:
+        return render(request, 'projeto/registo.html')
 
 #validar se um username já existe
 def username_exists(username):
@@ -85,26 +109,32 @@ def email_exists(email):
 
     return False
 
-#GUARDAR UM REGISTO = NOVO UTILIZADOR
-def registar(request):
-    first_name = request.POST['first_name']
-    last_name = request.POST['last_name']
-    username = request.POST['username']
-    email = request.POST['email']
-    password = request.POST['password']
-    confirm_password = request.POST['confirm_password']
-    if username_exists(username):
-        return render(request, 'projeto/registo.html', {'error_message': "Este utilizador já está registado"})
-    elif email_exists(email):
-        return render(request, 'projeto/registo.html', {'error_message': "Este utilizador já está registado"})
-    elif password != confirm_password:
-        return render(request, 'projeto/registo.html', {'error_message': "As passwords não coincidem"})
+
+
+
+def registar_org(request):
+    if request.method == "POST":
+        name_org = request.POST['name_org']
+        bio = request.POST['bio']
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
+        if username_exists(username):
+            return render(request, 'projeto/registo.html', {'error_message': "Este utilizador já está registado"})
+        elif email_exists(email):
+            return render(request, 'projeto/registo.html', {'error_message': "Este utilizador já está registado"})
+        elif password != confirm_password:
+            return render(request, 'projeto/registo.html', {'error_message': "As passwords não coincidem"})
+        else:
+            user = User.objects.create_user(username,email,password)
+            org = Organizacao(user=user, nome=name_org, descricao=bio)
+            org.save()
+            user.save()
+        return HttpResponseRedirect(reverse('projeto:index', ))
     else:
-        user = User.objects.create_user(username,email,password)
-        user.first_name = first_name
-        user.last_name = last_name
-        user.save()
-    return HttpResponseRedirect(reverse('projeto:index', ))
+        return render(request, 'projeto/registar_organizacao.html')
+
 
 def profile(request):
     return render(request, 'projeto/profile.html',)
