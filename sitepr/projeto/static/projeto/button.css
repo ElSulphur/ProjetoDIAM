@@ -15,12 +15,7 @@ a.button3{
 a.button3:hover{
     background-color:#4095c6;
 }
-@media all and (max-width:30em){
-    a.button3{
-    display:block;
-    margin:0.2em auto;
-}
-}
+
 
 a.button5{
 display:inline-block;

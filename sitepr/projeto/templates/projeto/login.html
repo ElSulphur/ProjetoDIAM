@@ -1,47 +1,21 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/style.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/registo.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/login.css' %}" />
+{% extends "projeto/base.html" %}
 
 
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/header.css' %}" />
+{% block content %}
 
-<body>
 
-    <nav class="stroke">
-        <ul>
-        <li><a href="{% url 'projeto:index' %}">INÍCIO</a></li>
-        <li><a href="{% url 'projeto:eventos' %}">EVENTOS</a></li>
-        <li><a href="{% url 'projeto:parceiros' %}">PARCEIROS</a></li>
-        <li><a href="{% url 'projeto:sobrenos' %}">SOBRE NÓS</a></li>
-        {% if request.user.is_authenticated %}
-        <li><a href="{% url 'projeto:profile' %}">PROFILE</a></li>
-        {% else %}
-        <li><a href="{% url 'projeto:user_login' %}">LOGIN</a></li>
-        <li><a href="{% url 'projeto:registo' %}">REGISTAR</a></li>
-        {% endif %}
-        </ul>
-    </nav>
 
-</body>
-
-<div class="footer">
-    <p>NEEDINS | Copyright 2021</p>
-</div>
-
-<div class="login-box">
 <form action="{% url 'projeto:user_login' %}" method="post">
 
     {% csrf_token %}
     <h2>Login </h2>
 
-    <div class="user-box">
-    <input type="text" placeholder="Username" id="username" name="username">
-    </div>
-    <div class="user-box">
-    <input type="password" placeholder="Insere a Palavra-passe" id="password" name="password">
-    </div>
 
+    <input type="text" placeholder="Username" id="username" name="username">
+    <br>
+
+    <input type="password" placeholder="Insere a Palavra-passe" id="password" name="password">
+    <br>
 
 
     {% if error_message %}
@@ -49,11 +23,13 @@
     {% endif %}
 
 
-
+    <br>
     <input type="submit" class="registerbtn" value="Continuar">
 
 
 
 
 </form>
-</div>
+
+
+{% endblock %}

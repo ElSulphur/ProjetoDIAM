@@ -1,51 +1,71 @@
-{% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/style.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/eventos.css' %}" />
+{% extends "projeto/base.html" %}
 
 
-  <link rel="stylesheet" type="text/css" href="{% static 'projeto/header.css' %}" />
 
-<body>
 
-    <nav class="stroke">
-        <ul>
-        <li><a href="{% url 'projeto:index' %}">INÍCIO</a></li>
-        <li><a href="{% url 'projeto:eventos' %}">EVENTOS</a></li>
-        <li><a href="{% url 'projeto:parceiros' %}">PARCEIROS</a></li>
-        <li><a href="{% url 'projeto:sobrenos' %}">SOBRE NÓS</a></li>
-        {% if request.user.is_authenticated %}
-        <li><a href="{% url 'projeto:profile' %}">PROFILE</a></li>
-        {% else %}
-        <li><a href="{% url 'projeto:user_login' %}">LOGIN</a></li>
-        <li><a href="{% url 'projeto:registo' %}">REGISTAR</a></li>
-        {% endif %}
-        </ul>
-    </nav>
 
-</body>
+{% block content %}
+<title>Needins - Eventos</title>
 
-<div class="footer">
-    <p>NEEDINS | Copyright 2021</p>
+<div class="row">
+    <div class="column">
+    <h2>{{ current_month }}</h2>
+    {% if current_month_list %}
+    {% for evento in current_month_list %}
+        <div class="container">
+            <img {{ evento.organizacao.avatar }} alt="Avatar" style="width:90px">
+            <p><span> {{ evento.nome }} - {{ evento.organizacao.nome }} </span></p>
+            <p> {{ evento.data }} </p>
+            <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="buttoninfo"> Informações </a>
+        </div>
+    {% endfor %}
+
+    {% else %}
+    <p>Não há Eventos disponiveis.</p>
+    {% endif %}
+    </div>
+
+    <div class="column">
+    <h2>{{ next_month }}</h2>
+    {% if next_month_list %}
+    {% for evento in next_month_list %}
+        <div class="container">
+            <img {{ evento.organizacao.avatar }} alt="Avatar" style="width:90px">
+            <p><span> {{ evento.nome }} - {{ evento.organizacao.nome }} </span></p>
+            <p> {{ evento.data }} </p>
+            <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="buttoninfo"> Informações </a>
+        </div>
+    {% endfor %}
+
+    {% else %}
+    <p>Não há Eventos disponiveis.</p>
+    {% endif %}
+    </div>
+
+    <div class="column">
+    <h2>{{ next_next_month }}</h2>
+    {% if next_next_month_list %}
+    {% for evento in next_next_month_list %}
+        <div class="container">
+            <img {{ evento.organizacao.avatar }} alt="Avatar" style="width:90px">
+            <p><span> {{ evento.nome }} - {{ evento.organizacao.nome }} </span></p>
+            <p> {{ evento.data }} </p>
+            <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="buttoninfo"> Informações </a>
+        </div>
+    {% endfor %}
+
+    {% else %}
+    <p>Não há Eventos disponiveis.</p>
+    {% endif %}
+    </div>
+
 </div>
 
-
-
-{% if latest_question_list %}
-{% for evento in latest_question_list %}
-    <div class="container">
-        <img src="{% static 'projeto/images/vodafone.png' %}" alt="Avatar" style="width:90px">
-        <p><span> {{ evento.nome }} - {{ evento.organizacao.nome }} </span></p>
-        <p> {{ evento.descricao }} </p>
-        <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="buttoninfo"> Informações </a>
-    </div>
-{% endfor %}
-{% else %}
-<p>Nao ha eventos disponiveis.</p>
-{% endif %}
 
 {% if user.is_authenticated and user.organizacao.is_organizacao %}
 <p>
  <a href="{%url 'projeto:criar_evento' %}" class="button"> Criar Evento </a>
 </p>
 {% endif %}
+
+{% endblock %}

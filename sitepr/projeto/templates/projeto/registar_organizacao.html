@@ -1,58 +1,33 @@
-{% load static %}
+{% extends "projeto/base.html" %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/style.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/registo.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/login.css' %}" />
+{% block content %}
 
 
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/header.css' %}" />
-
-<body>
-
-    <nav class="stroke">
-        <ul>
-        <li><a href="{% url 'projeto:index' %}">INÍCIO</a></li>
-        <li><a href="{% url 'projeto:eventos' %}">EVENTOS</a></li>
-        <li><a href="{% url 'projeto:parceiros' %}">PARCEIROS</a></li>
-        <li><a href="{% url 'projeto:sobrenos' %}">SOBRE NÓS</a></li>
-        {% if request.user.is_authenticated %}
-        <li><a href="{% url 'projeto:profile' %}">PROFILE</a></li>
-        {% else %}
-        <li><a href="{% url 'projeto:user_login' %}">LOGIN</a></li>
-        <li><a href="{% url 'projeto:registo' %}">REGISTAR</a></li>
-        {% endif %}
-        </ul>
-    </nav>
-
-</body>
-
-<div class="footer">
-    <p>NEEDINS | Copyright 2021</p>
-</div>
-
-<div class="login-box">
 <form action="{% url 'projeto:registar_org' %}" method="post">
 
     {% csrf_token %}
-    <h2>Registo </h2>
-    <div class="user-box">
+    <h2> Registo </h2>
+
     <input type="text" placeholder="Nome da Organização" id="name_org" name="name_org">
-    </div>
-    <div class="user-box">
+
+
     <input type="text" placeholder="Descrição da Organização" id="bio" name="bio">
-    </div>
-    <div class="user-box">
+    <br>
+
     <input type="text" placeholder="Username" id="username" name="username">
-    </div>
-    <div class="user-box">
+
+
     <input type="text" placeholder="Insere o e-mail" id="email" name="email">
-    </div>
-    <div class="user-box">
+     <br>
+
     <input type="password" placeholder="Insere a Palavra-passe" id="password" name="password">
-    </div>
-    <div class="user-box">
+
+
     <input type="password" placeholder="Confirma a Palavra-passe" id="confirm_password" name="confirm_password">
-    </div>
+    <br>
+
+    <input type="file"  id="myfile" name="myfile">
+     <br>
 
 
     {% if error_message %}
@@ -64,7 +39,7 @@
     <input type="submit" class="registerbtn" value="Continuar">
 
 
-
-
 </form>
-</div>
+
+
+{% endblock %}

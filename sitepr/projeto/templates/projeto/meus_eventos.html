@@ -1,0 +1,20 @@
+{% extends "projeto/base.html" %}
+
+{% block content %}
+<h2>Meus eventos</h2>
+{% if eventos_list %}
+    {% for evento in eventos_list %}
+        <div class="container">
+            <img {{ evento.organizacao.avatar }} alt="Avatar" style="width:90px">
+            <p><span> {{ evento.nome }} - {{ evento.organizacao.nome }} </span></p>
+            <p> {{ evento.data }} </p>
+            <a href="{%url 'projeto:detalhe_meus_eventos' evento.id %}" class="buttoninfo"> detalhes </a>
+        </div>
+    {% endfor %}
+{% else %}
+<p>Não tens eventos criados.</p>
+{% endif %}
+
+
+
+{% endblock %}

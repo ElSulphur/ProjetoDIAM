@@ -1,30 +1,5 @@
-{% load static %}
+{% extends "projeto/base.html" %}
 
-<link rel="stylesheet" type="text/css"
-    href="{% static 'projeto/style.css' %}" />
+{% block content %}
 
-
- <link rel="stylesheet" type="text/css" href="{% static 'projeto/header.css' %}" />
-
-<body>
-
-    <nav class="stroke">
-        <ul>
-        <li><a href="{% url 'projeto:index' %}">INÍCIO</a></li>
-        <li><a href="{% url 'projeto:eventos' %}">EVENTOS</a></li>
-        <li><a href="{% url 'projeto:parceiros' %}">PARCEIROS</a></li>
-        <li><a href="{% url 'projeto:sobrenos' %}">SOBRE NÓS</a></li>
-        {% if request.user.is_authenticated %}
-        <li><a href="{% url 'projeto:profile' %}">PROFILE</a></li>
-        {% else %}
-        <li><a href="{% url 'projeto:user_login' %}">LOGIN</a></li>
-        <li><a href="{% url 'projeto:registo' %}">REGISTAR</a></li>
-        {% endif %}
-        </ul>
-    </nav>
-
-</body>
-
-<div class="footer">
-    <p>NEEDINS | Copyright 2021</p>
-</div>
+{% endblock %}
