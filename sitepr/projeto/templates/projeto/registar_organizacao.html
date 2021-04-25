@@ -3,10 +3,10 @@
 {% block content %}
 
 
-<form action="{% url 'projeto:registar_org' %}" method="post">
+<form action="{% url 'projeto:registar_org' %}" method="post" enctype="multipart/form-data">
 
     {% csrf_token %}
-    <h2> Registo </h2>
+    <h2> Registo Organização </h2>
 
     <input type="text" placeholder="Nome da Organização" id="name_org" name="name_org">
 
@@ -26,7 +26,7 @@
     <input type="password" placeholder="Confirma a Palavra-passe" id="confirm_password" name="confirm_password">
     <br>
 
-    <input type="file"  id="myfile" name="myfile">
+    <input type="file"  id="img" name="img">
      <br>
 
 

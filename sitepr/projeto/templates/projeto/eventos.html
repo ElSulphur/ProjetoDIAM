@@ -1,5 +1,5 @@
 {% extends "projeto/base.html" %}
-
+{% load static %}
 
 
 
@@ -13,7 +13,9 @@
     {% if current_month_list %}
     {% for evento in current_month_list %}
         <div class="container">
-            <img {{ evento.organizacao.avatar }} alt="Avatar" style="width:90px">
+            {% with "/static/projeto/users/"|add:evento.organizacao.img_name as imagem %}
+            <img src="{{ imagem }}" alt="Avatar" width="90" height="90">
+            {% endwith %}
             <p><span> {{ evento.nome }} - {{ evento.organizacao.nome }} </span></p>
             <p> {{ evento.data }} </p>
             <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="buttoninfo"> Informações </a>
@@ -30,7 +32,9 @@
     {% if next_month_list %}
     {% for evento in next_month_list %}
         <div class="container">
-            <img {{ evento.organizacao.avatar }} alt="Avatar" style="width:90px">
+            {% with "/static/projeto/users/"|add:evento.organizacao.img_name as imagem %}
+            <img src="{{ imagem }}" alt="Avatar" width="90" height="90">
+            {% endwith %}
             <p><span> {{ evento.nome }} - {{ evento.organizacao.nome }} </span></p>
             <p> {{ evento.data }} </p>
             <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="buttoninfo"> Informações </a>
@@ -47,7 +51,9 @@
     {% if next_next_month_list %}
     {% for evento in next_next_month_list %}
         <div class="container">
-            <img {{ evento.organizacao.avatar }} alt="Avatar" style="width:90px">
+            {% with "/static/projeto/users/"|add:evento.organizacao.img_name as imagem %}
+            <img src="{{ imagem }}" alt="Avatar" width="90" height="90">
+            {% endwith %}
             <p><span> {{ evento.nome }} - {{ evento.organizacao.nome }} </span></p>
             <p> {{ evento.data }} </p>
             <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="buttoninfo"> Informações </a>

@@ -5,10 +5,12 @@
 {% if eventos_list %}
     {% for evento in eventos_list %}
         <div class="container">
-            <img {{ evento.organizacao.avatar }} alt="Avatar" style="width:90px">
+            {% with "/static/projeto/users/"|add:evento.organizacao.img_name as imagem %}
+            <img src="{{ imagem }}" alt="Avatar" width="90" height="90">
+            {% endwith %}
             <p><span> {{ evento.nome }} - {{ evento.organizacao.nome }} </span></p>
             <p> {{ evento.data }} </p>
-            <a href="{%url 'projeto:detalhe_meus_eventos' evento.id %}" class="buttoninfo"> detalhes </a>
+            <a href="{%url 'projeto:detalhe_meus_eventos' evento.id %}" class="buttoninfo"> Detalhes </a>
         </div>
     {% endfor %}
 {% else %}
