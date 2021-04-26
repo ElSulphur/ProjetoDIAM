@@ -3,22 +3,22 @@
 {% block content %}
 
 
-<form action="{% url 'projeto:registo' %}" method="post">
+<form action="{% url 'projeto:registar_org' %}" method="post">
 
     {% csrf_token %}
-    <h2>Registo </h2>
+    <h2> Registo </h2>
 
-    <input type="text" placeholder="Nome" id="first_name" name="first_name">
+    <input type="text" placeholder="Nome da Organização" id="name_org" name="name_org">
 
 
-    <input type="text" placeholder="Apelido" id="last_name" name="last_name">
+    <input type="text" placeholder="Descrição da Organização" id="bio" name="bio">
     <br>
 
     <input type="text" placeholder="Username" id="username" name="username">
 
 
     <input type="text" placeholder="Insere o e-mail" id="email" name="email">
-    <br>
+     <br>
 
     <input type="password" placeholder="Insere a Palavra-passe" id="password" name="password">
 
@@ -26,7 +26,10 @@
     <input type="password" placeholder="Confirma a Palavra-passe" id="confirm_password" name="confirm_password">
     <br>
 
-    
+    <input type="file"  id="myfile" name="myfile">
+     <br>
+
+
     {% if error_message %}
     <p><strong>{{ error_message }}</strong></p>
     {% endif %}
@@ -35,8 +38,6 @@
 
     <input type="submit" class="registerbtn" value="Continuar">
 
-
-<a class="button5" href="{% url 'projeto:registar_org' %}">Registar Organização</a>
 
 </form>
 

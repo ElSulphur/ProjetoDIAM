@@ -1,27 +1,9 @@
-{% load static %}
+{% extends "projeto/base.html" %}
 
-<link rel="stylesheet" type="text/css"
-    href="{% static 'projeto/style.css' %}" />
-
-
-  <div class="header">
-    <a href="{% url 'projeto:index' %}" class="logo">NEEDINS</a>
-    <div class="header-right">
-        <a href="{% url 'projeto:index' %}">INÍCIO</a>
-        <a href="{% url 'projeto:eventos' %}">EVENTOS</a>
-        <a href="{% url 'projeto:parceiros' %}">PARCEIROS</a>
-        <a href="{% url 'projeto:sobrenos' %}">SOBRE NÓS</a>
-        <a href="{% url 'projeto:user_login' %}">LOGIN</a>
-        <a href="{% url 'projeto:registo' %}">REGISTAR</a>
-    </div>
-</div>
-
-<div class="footer">
-    <p>NEEDINS | Copyright 2021</p>
-</div>
+{% block content %}
 
 <h1>Criar Evento</h1>
-<form action="{% url 'projeto:guardar_evento' %}" method="post">
+<form action="{% url 'projeto:criar_evento' %}" method="post">
   {% csrf_token %}
   <label for="nome_evento">Nome do Evento:</label>
   <input type="text" id="nome_evento" name="nome_evento"><br>
@@ -41,3 +23,4 @@
   <input type="submit" value="Criar evento e voltar à lista de eventos">
 </form>
 
+{% endblock %}

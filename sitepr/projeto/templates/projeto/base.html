@@ -1,0 +1,40 @@
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/header.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/eventos.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/login.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/button.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/index.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/colunas.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/sobre_nos.css' %}" />
+{% endblock %}
+
+<body>
+
+    <nav class="stroke">
+        <ul>
+        <li><a href="{% url 'projeto:index' %}">INÍCIO</a></li>
+        <li><a href="{% url 'projeto:eventos' %}">EVENTOS</a></li>
+        {% if user.is_authenticated and user.organizacao.is_organizacao %}
+        <li><a href="{% url 'projeto:meus_eventos' %}">MEUS EVENTOS</a></li>
+            {% endif %}
+        <li><a href="{% url 'projeto:parceiros' %}">PARCEIROS</a></li>
+        <li><a href="{% url 'projeto:sobrenos' %}">SOBRE NÓS</a></li>
+        {% if request.user.is_authenticated %}
+        <li><a href="{% url 'projeto:profile' %}">PROFILE</a></li>
+        {% else %}
+        <li><a href="{% url 'projeto:user_login' %}">LOGIN</a></li>
+        <li><a href="{% url 'projeto:registo' %}">REGISTAR</a></li>
+        {% endif %}
+        </ul>
+    </nav>
+
+</body>
+
+
+
+{% block content %}
+
+{% endblock %}

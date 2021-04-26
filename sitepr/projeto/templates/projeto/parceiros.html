@@ -1,23 +1,34 @@
+{% extends "projeto/base.html" %}
 {% load static %}
+{% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/style.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/parceiros.css' %}" />
 
-  <div class="header">
-    <a href="{% url 'projeto:index' %}" class="logo">NEEDINS</a>
-    <div class="header-right">
-        <a href="{% url 'projeto:index' %}">INÍCIO</a>
-        <a href="{% url 'projeto:eventos' %}">EVENTOS</a>
-        <a class="active" href="{% url 'projeto:parceiros' %}">PARCEIROS</a>
-        <a href="{% url 'projeto:sobrenos' %}">SOBRE NÓS</a>
-        <a href="{% url 'projeto:user_login' %}">LOGIN</a>
-        <a href="{% url 'projeto:registo' %}">REGISTAR</a>
+<h2 style="text-align:center">PARCEIROS</h2>
+<br></br>
+{% if org_list %}
+{% for organizacao in org_list %}
+<div class="column">
+    <div class="card">
+      <img src="{% static 'projeto/images/vodafone.png' %}" alt="Tomás" style="width:100%">
+      <div class="container">
+        <h2>{{ organizacao.nome }}</h2>
+        <p class="title">Informática e Gestão de Empresas @ ISCTE</p>
+        <p>{{ organizacao.descricao }}</p>
+        <p>{{ user.email }}</p>
+        <p><a href = "mailto:{{ user.email }}?subject = Feedback&body = Message" class="button">Contacto</a></p>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="footer">
-    <p>NEEDINS | Copyright 2021</p>
-</div>
+{% endfor %}
+{% endif %}
 
-<p> ola </p>
 
+
+{% if org_list %}
+{% for organizacao in org_list %}
+    <li>{{ organizacao.nome }}</li>
+{% endfor %}
+{% endif %}
+
+{% endblock %}

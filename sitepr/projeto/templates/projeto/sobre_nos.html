@@ -1,22 +1,51 @@
-<!DOCTYPE html>
+  
+{% extends "projeto/base.html" %}
 {% load static %}
 
-<link rel="stylesheet" type="text/css"
-    href="{% static 'projeto/style.css' %}" />
+{% block content %}
 
 
-  <div class="header">
-    <a href="{% url 'projeto:index' %}" class="logo">NEEDINS</a>
-    <div class="header-right">
-        <a href="{% url 'projeto:index' %}">INÍCIO</a>
-        <a href="{% url 'projeto:eventos' %}">EVENTOS</a>
-        <a href="{% url 'projeto:parceiros' %}">PARCEIROS</a>
-        <a class="active" href="{% url 'projeto:sobrenos' %}">SOBRE NÓS</a>
-        <a href="{% url 'projeto:user_login' %}">LOGIN</a>
-        <a href="{% url 'projeto:registo' %}">REGISTAR</a>
+<h2 style="text-align:center">A EQUIPA</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'projeto/images/nasci.png' %}" alt="Tomás" style="width:100%">
+      <div class="container">
+        <h2>Tomás Nascimento</h2>
+        <p class="title">Informática e Gestão de Empresas @ ISCTE</p>
+        <p>Natural de Lisboa, Tomás sempre gostou da área das tecnologias.</p>
+        <p>Tomas_Nascimento@iscte-iul.pt</p>
+        <p><a href = "mailto:Tomas_Nascimento@iscte-iul.pt?subject = Feedback&body = Message" class="button">Contacto</a></p>
+      </div>
     </div>
-</div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+        <img src="{% static 'projeto/images/seb.png' %}" alt="Sebastião" style="width:100%">
+      <div class="container">
+        <h2>Sebastião Leal</h2>
+        <p class="title">Informática e Gestão de Empresas @ ISCTE</p>
+        <p>Sebastião desde cedo descobriu que a sua paixão estava na programação.</p>
+        <p>Sebastiao_Leal@iscte-iul.pt</p>
+        <p><a href = "mailto:Sebastiao_Leal@iscte-iul.pt?subject = Feedback&body = Message" class="button">Contacto</a></p>
+      </div>
+    </div>
+  </div>
   
-<div class="footer">
-    <p>NEEDINS | Copyright 2021</p>
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'projeto/images/kiko.png' %}" alt="Francisco" style="width:100%">
+      <div class="container">
+        <h2>Francisco Quintela</h2>
+        <p class="title">Informática e Gestão de Empresas @ ISCTE</p>
+        <p>Diretamente da Chamusca, Francisco procura sempre a perfeição nos projetos.</p>
+        <p>Francisco_Quintela@iscte-iul.pt</p>
+        <p><a href = "mailto:Francisco_Quintela@iscte-iul.pt?subject = Feedback&body = Message" class="button">Contacto</a></p>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+{% endblock %}

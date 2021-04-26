@@ -1,0 +1,15 @@
+{% extends "projeto/base.html" %}
+
+{% block content %}
+
+<h2>Profile</h2>
+
+{% if request.user.is_authenticated %}
+
+<p> username: {{user.get_username}} </p>
+<p> email: {{ user.email }} </p>
+{% endif %}
+
+<a href="{% url 'projeto:logout_view' %}" class="button5">LOGOUT</a>
+
+{% endblock %}
