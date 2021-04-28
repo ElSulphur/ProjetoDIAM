@@ -16,7 +16,7 @@
 
 {% if user.is_authenticated and user.organizacao.is_organizacao %}
 <p>
- <a href="{%url 'projeto:apagar_evento' evento.id %}" class="buttonred"> Apagar Evento </a>
+ <a href="{%url 'projeto:apagar_evento' evento.id %}" class="button5" style="background-color:red"> Apagar Evento </a>
 </p>
 {% endif %}
 

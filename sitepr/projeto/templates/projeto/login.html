@@ -2,7 +2,7 @@
 
 
 {% block content %}
-
+<title>Needins - Login</title>
 
 
 <form action="{% url 'projeto:user_login' %}" method="post">
@@ -11,17 +11,16 @@
     <h2>Login </h2>
 
 
-    <input type="text" placeholder="Username" id="username" name="username">
+    <input type="text" placeholder="Username" id="username" name="username" required oninvalid="this.setCustomValidity('Este campo é obrigatório.')" oninput="this.setCustomValidity('')">
     <br>
 
-    <input type="password" placeholder="Insere a Palavra-passe" id="password" name="password">
+    <input type="password" placeholder="Palavra-passe" id="password" name="password" required oninvalid="this.setCustomValidity('Este campo é obrigatório.')" oninput="this.setCustomValidity('')">
     <br>
 
 
     {% if error_message %}
-    <p><strong>{{ error_message }}</strong></p>
+    <p style="color: red"><strong>{{ error_message }}</strong></p>
     {% endif %}
-
 
     <br>
     <input type="submit" class="registerbtn" value="Continuar">

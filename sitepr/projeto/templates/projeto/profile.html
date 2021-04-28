@@ -1,6 +1,7 @@
 {% extends "projeto/base.html" %}
 
 {% block content %}
+<title>Needins - Profile</title>
 
 <h2>Profile</h2>
 
@@ -10,7 +11,7 @@
 <p> email: {{ user.email }} </p>
 {% endif %}
 
-<a href="{% url 'projeto:logout_view' %}" class="button5">LOGOUT</a>
+<a href="{% url 'projeto:logout_view' %}" class="button5" style="background-color:red">LOGOUT</a>
 
 {% endblock %}
 

@@ -1,10 +1,18 @@
 {% extends "projeto/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/eventos.css' %}" />
+{% endblock %}
 
 {% block content %}
-<h2>Meus eventos</h2>
+<title>Needins - Meus Eventos</title>
+
+<h1 style="text-align:center;text-shadow: 1px 1px 3px #6bba61;">Meus eventos</h1>
+<div style="background-color:#dfebe2;padding: 40px">
 {% if eventos_list %}
     {% for evento in eventos_list %}
-        <div class="container">
+        <div class="container" style="display: block;margin-left: auto;margin-right: auto;margin-top: 10px;width: 60%;">
             {% with "/static/projeto/users/"|add:evento.organizacao.img_name as imagem %}
             <img src="{{ imagem }}" alt="Avatar" width="90" height="90">
             {% endwith %}
@@ -18,5 +26,11 @@
 {% endif %}
 
 
+{% if user.is_authenticated and user.organizacao.is_organizacao %}
+<p>
+ <a href="{%url 'projeto:criar_evento' %}" class="button" style="margin-left: 30px"> Criar Evento </a>
+</p>
+{% endif %}
+</div>
 
 {% endblock %}

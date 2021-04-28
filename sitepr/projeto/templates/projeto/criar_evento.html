@@ -1,6 +1,7 @@
 {% extends "projeto/base.html" %}
 
 {% block content %}
+<title>Needins - Meus Eventos</title>
 
 <h1>Criar Evento</h1>
 <form action="{% url 'projeto:criar_evento' %}" method="post">
@@ -9,7 +10,7 @@
   <input type="text" id="nome_evento" name="nome_evento"><br>
   <br>
     <label for="descricao_evento"> Descrição: </label>
-    <input type="text" id="descricao_evento" name="descricao_evento"><br>
+    <input id="descricao_evento" name="descricao_evento" style="height: 50px; width:280px"><br>
 <br>
     <label for="local"> Local: </label>
     <input type="text" id="local" name="local"><br>

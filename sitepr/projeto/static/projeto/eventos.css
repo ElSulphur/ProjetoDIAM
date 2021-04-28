@@ -1,3 +1,12 @@
+
+h2{
+    border: 1px solid;
+    text-align:center;
+    text-shadow: 1px 1px 3px #6bba61;
+    background-color: #eee;
+    padding: 10px
+}
+
 .button {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -39,12 +48,15 @@
 
 /* Style the container with a rounded border, grey background and some padding and margin */
 .container {
-  border: 2px solid #ccc;
-  background-color: #eee;
-  border-radius: 5px;
-  padding: 16px;
-  margin: 16px 0;
-}
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #eee;
+    border-radius: 2%;
+  }
+
 
 /* Clear floats after containers */
 .container::after {
@@ -56,8 +68,14 @@
 /* Float images inside the container to the left. Add a right margin, and style the image as a circle */
 .container img {
   float: left;
+  margin-top: 15px;
   margin-right: 20px;
-  border-radius: 100%;
+  border-radius: 10%;
+}
+
+.container a {
+  float: left;
+  margin-bottom: 10px;
 }
 
 /* Increase the font-size of a span element */
@@ -78,3 +96,5 @@
     display: block;
   }
 }
+
+

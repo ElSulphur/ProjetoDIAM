@@ -1,7 +1,13 @@
 {% extends "projeto/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/login.css' %}" />
+{% endblock %}
+
 
 {% block content %}
-
+<title>Needins - Registo</title>
 
 <form action="{% url 'projeto:registo' %}" method="post">
 
@@ -14,21 +20,21 @@
     <input type="text" placeholder="Apelido" id="last_name" name="last_name">
     <br>
 
-    <input type="text" placeholder="Username" id="username" name="username">
+    <input type="text" placeholder="Username" id="username"  name="username" required oninvalid="this.setCustomValidity('Este campo é obrigatório.')" oninput="this.setCustomValidity('')"/>
 
 
-    <input type="text" placeholder="Insere o e-mail" id="email" name="email">
+    <input type="email" placeholder="e-mail@gmail.com" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninvalid="this.setCustomValidity('Este campo é obrigatório.')" oninput="this.setCustomValidity('')">
     <br>
 
-    <input type="password" placeholder="Insere a Palavra-passe" id="password" name="password">
+    <input type="password" placeholder="Insere a Palavra-passe" id="password" name="password" required oninvalid="this.setCustomValidity('Este campo é obrigatório')" oninput="this.setCustomValidity('')">
 
 
-    <input type="password" placeholder="Confirma a Palavra-passe" id="confirm_password" name="confirm_password">
+    <input type="password" placeholder="Confirma a Palavra-passe" id="confirm_password" name="confirm_password" required oninvalid="this.setCustomValidity('Este campo é obrigatório')" oninput="this.setCustomValidity('')">
     <br>
 
     
     {% if error_message %}
-    <p><strong>{{ error_message }}</strong></p>
+    <p style="color: red"><strong>{{ error_message }}</strong></p>
     {% endif %}
 
 
@@ -36,7 +42,7 @@
     <input type="submit" class="registerbtn" value="Continuar">
 
 
-<a class="button5" href="{% url 'projeto:registar_org' %}">Registar Organização</a>
+<a class="button5" href="{% url 'projeto:registar_org' %}">Registar como Organização</a>
 
 </form>
 

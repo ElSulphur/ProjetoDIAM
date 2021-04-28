@@ -1,7 +1,13 @@
 {% extends "projeto/base.html" %}
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/index.css' %}" />
+
+{% endblock %}
+
 {% block content %}
+<title>Needins - Homepage</title>
 
 
 <img src="{% static 'projeto/images/logo needins.png' %}" alt="Imagem Central" class="center">

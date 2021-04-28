@@ -1,15 +1,18 @@
 {% extends "projeto/base.html" %}
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/eventos.css' %}" />
 
+{% endblock %}
 
 
 {% block content %}
 <title>Needins - Eventos</title>
 
-<div class="row">
-    <div class="column">
-    <h2>{{ current_month }}</h2>
+<div class="row" style="background-color: #dfebe2">
+    <div class="column" >
+    <h2 style="">{{ current_month }}</h2>
     {% if current_month_list %}
     {% for evento in current_month_list %}
         <div class="container">
@@ -23,12 +26,12 @@
     {% endfor %}
 
     {% else %}
-    <p>Não há Eventos disponiveis.</p>
+    <p style="text-align:center">Não há Eventos disponiveis.</p>
     {% endif %}
     </div>
 
     <div class="column">
-    <h2>{{ next_month }}</h2>
+    <h2 style="text-align:center;text-shadow: 1px 1px 3px #6bba61;">{{ next_month }}</h2>
     {% if next_month_list %}
     {% for evento in next_month_list %}
         <div class="container">
@@ -42,12 +45,12 @@
     {% endfor %}
 
     {% else %}
-    <p>Não há Eventos disponiveis.</p>
+    <p style="text-align:center">Não há Eventos disponiveis.</p>
     {% endif %}
     </div>
 
     <div class="column">
-    <h2>{{ next_next_month }}</h2>
+    <h2 style="text-align:center;text-shadow: 1px 1px 3px #6bba61;">{{ next_next_month }}</h2>
     {% if next_next_month_list %}
     {% for evento in next_next_month_list %}
         <div class="container">
@@ -61,17 +64,12 @@
     {% endfor %}
 
     {% else %}
-    <p>Não há Eventos disponiveis.</p>
+    <p style="text-align:center">Não há Eventos disponiveis.</p>
     {% endif %}
     </div>
 
 </div>
 
 
-{% if user.is_authenticated and user.organizacao.is_organizacao %}
-<p>
- <a href="{%url 'projeto:criar_evento' %}" class="button"> Criar Evento </a>
-</p>
-{% endif %}
 
 {% endblock %}
