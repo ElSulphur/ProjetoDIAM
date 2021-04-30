@@ -72,7 +72,7 @@ def detalhe_evento(request, evento_id):
 
 #PAGINA MEUS EVENTOS
 def meus_eventos(request):
-    eventos_list = Evento.objects.filter(organizacao=request.user.organizacao)
+    eventos_list = Evento.objects.filter(organizacao=request.user.organizacao).order_by('data')
     context = {'eventos_list': eventos_list}
     return render(request, 'projeto/meus_eventos.html',context)
 
@@ -83,7 +83,7 @@ def detalhe_meus_eventos(request, evento_id):
 def apagar_evento(request,evento_id):
     evento = get_object_or_404(Evento, pk=evento_id)
     evento.delete()
-    return render(request, 'projeto/meus_eventos.html')
+    return HttpResponseRedirect(reverse('projeto:meus_eventos', ))
 
 #PAGINA SOBRE NOS
 def sobrenos(request):
@@ -158,7 +158,10 @@ def email_exists(email):
 
 
 def registar_org(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.FILES['img']:
+        avatar = request.FILES['img']
+        fs = FileSystemStorage()
+        filename = fs.save(avatar.name, avatar)
         name_org = request.POST['name_org']
         bio = request.POST['bio']
         username = request.POST['username']
@@ -173,7 +176,7 @@ def registar_org(request):
             return render(request, 'projeto/registar_organizacao.html', {'error_message': "As passwords não coincidem"})
         else:
             user = User.objects.create_user(username,email,password)
-            org = Organizacao(user=user, nome=name_org, descricao=bio,)
+            org = Organizacao(user=user, nome=name_org, descricao=bio, img_name=avatar)
             org.save()
             user.save()
         return HttpResponseRedirect(reverse('projeto:user_login', ))
@@ -193,4 +196,3 @@ def img_upload(request):
     uploaded_file_url = fs.url(filename)
     return render(request, 'projeto/img_upload.html', {'uploaded_file_url': uploaded_file_url})
  return render(request, 'projeto/img_upload.html')
-

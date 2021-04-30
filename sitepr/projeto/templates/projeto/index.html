@@ -1,11 +1,50 @@
+
 {% extends "projeto/base.html" %}
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/index.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/titles.css' %}" />
+{% endblock %}
+
+
 {% block content %}
+<title>Needins - Homepage</title>
 
 
-<img src="{% static 'projeto/images/needins2.png' %}" alt="Imagem Central" class="center">
-<img src="{% static 'projeto/images/principal.jpeg' %}" alt="Imagem Central" class="center">
+<img src="{% static 'projeto/images/needinslogo2.png' %}" alt="Imagem Central" class="center">
+
+<div id="features">
+    <div class="wrapper">
+        <ul>
+            <li class="feature-1">
+                <h4>SOLUÇÕES DIGITAIS</h4>
+                <p>Usa a tecnologia como solução à necessidade</p>
+            </li>
+            <li class="feature-2">
+                <h4>LOCALIZA ORGANIZAÇÕES</h4>
+                <p>Encontra as organizações que procuras</p>
+            </li>
+            <li class="feature-3">
+                <h4>ENTREGA DE BENS</h4>
+                <p>Entrega alimentos e outros bens às nossas organizações parceiras</p>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+
+<br></br>
+
+<div id="cta">
+    <div class="wrapper">
+        <h3>QUERES SABER MAIS?</h3>
+        <p>A NEEDINS é uma plataforma que visa facilitar a entrega de bens essenciais nestes dias tão difíceis que vivemos. Com o decorrer da pandemia, a entrega de alimentos e outros bens não tem estado tão presente nas nossas vidas. </p>
+        <a href="{% url 'projeto:sobrenos' %}" class="button-2">Sobre nós</a>
+    </div>
+</div>
+
+<br></br>
 
 
 

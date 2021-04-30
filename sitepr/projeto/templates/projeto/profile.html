@@ -1,15 +1,43 @@
+
 {% extends "projeto/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/profile.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/titles.css' %}" />
+{% endblock %}
 
 {% block content %}
 
-<h2>Profile</h2>
+<title>Needins - Profile</title>
+<br></br>
+<h2 style="text-align:center" class="heading">Profile</h2>
 
-{% if request.user.is_authenticated %}
 
-<p> username: {{user.get_username}} </p>
-<p> email: {{ user.email }} </p>
+
+{% if request.user.is_authenticated and not user.organizacao.is_organizacao %}
+<div class="card">
+  <img src="{% static 'projeto/images/user.png' %}" alt="Utilizador" style="width:100%">
+  <h1>{{user.get_username}}</h1>
+  <p class="title">{{ user.first_name }} {{ user.last_name }}</p>
+  <p>{{ user.email }}</p>
+  <a href="{% url 'projeto:logout_view' %}" class="button5" style="background-color:red">LOGOUT</a>
+</div>
 {% endif %}
 
-<a href="{% url 'projeto:logout_view' %}" class="button5">LOGOUT</a>
+
+{% if user.is_authenticated and user.organizacao.is_organizacao %}
+<div class="card">
+    {% with "/static/projeto/users/"|add:user.organizacao.img_name as imagem %}
+    <img src="{{ imagem }}" alt="Imagem" style="width:100%">
+    {% endwith %}
+    <h1>{{user.get_username}}</h1>
+    <p class="title">{{ user.organizacao.nome }}</p>
+    <p>{{ user.organizacao.descricao }}</p>
+    <p>{{ user.email }}</p>
+    <a href="{% url 'projeto:logout_view' %}" class="button5" style="background-color:red">LOGOUT</a>
+</div>
+{% endif %}
+
 
 {% endblock %}

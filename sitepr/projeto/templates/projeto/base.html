@@ -1,17 +1,14 @@
 {% load static %}
 
-{% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/style.css' %}" />
+
+
 <link rel="stylesheet" type="text/css" href="{% static 'projeto/header.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/eventos.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/login.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'projeto/button.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/index.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'projeto/colunas.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'projeto/sobre_nos.css' %}" />
+{% block css %}
 {% endblock %}
 
-<body>
+
 
     <nav class="stroke">
         <ul>
@@ -30,10 +27,6 @@
         {% endif %}
         </ul>
     </nav>
-
-
-</body>
-
 
 
 {% block content %}

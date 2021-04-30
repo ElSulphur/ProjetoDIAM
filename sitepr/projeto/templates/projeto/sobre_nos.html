@@ -1,27 +1,48 @@
 {% extends "projeto/base.html" %}
 {% load static %}
 
+
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/sobre_nos.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/titles.css' %}" />
+{% endblock %}
+
+
 {% block content %}
+<br></br>
+<h1 style="text-align:center;text-shadow: 1px 1px 3px #6bba61;">Missão</h1>
+<div class="texto">
+ <h4 style="color: rgb(83, 83, 83)">A NEEDINS é uma plataforma que visa facilitar a entrega de bens essenciais nestes dias tão difíceis que vivemos. Com o decorrer da pandemia, a entrega de alimentos e outros bens não tem estado tão presente nas nossas vidas. O nosso objetivo tem como base a criação de um website no qual diversas organizações podem informar os utilizadores acerca dos nobres eventos que se vão realizar e tudo sobre eles (data, hora, localização, etc.), de modo a que se volte a ajudar os mais necessitados.</h6>
+  </div>
+<br></br>
+<title>Needins - Sobre nós</title>
 
-
-<h2 style="text-align:center">A EQUIPA</h2>
-<div class="row">
+<h1 style="text-align:center;text-shadow: 1px 1px 3px #6bba61;">Equipa</h1>
+<div class="row" style="background-color: #dfebe2">
   <div class="column">
+
     <div class="card">
-      <img src="{% static 'projeto/images/nasci.png' %}" alt="Tomás" style="width:100%">
-      <div class="container">
+      <div id="center">
+      <img src="{% static 'projeto/images/nasci.png' %}" alt="Tomás">
+      </div>
+        <div class="container">
         <h2>Tomás Nascimento</h2>
         <p class="title">Informática e Gestão de Empresas @ ISCTE</p>
         <p>Natural de Lisboa, Tomás sempre gostou da área das tecnologias.</p>
         <p>Tomas_Nascimento@iscte-iul.pt</p>
         <p><a href = "mailto:Tomas_Nascimento@iscte-iul.pt?subject = Feedback&body = Message" class="button">Contacto</a></p>
+
       </div>
     </div>
   </div>
 
   <div class="column">
+
     <div class="card">
-        <img src="{% static 'projeto/images/seb.png' %}" alt="Sebastião" style="width:100%">
+     <div id="center">
+      <img src="{% static 'projeto/images/seb.png' %}" alt="Sebastião">
+      </div>
       <div class="container">
         <h2>Sebastião Leal</h2>
         <p class="title">Informática e Gestão de Empresas @ ISCTE</p>
@@ -31,10 +52,13 @@
       </div>
     </div>
   </div>
-  
+
   <div class="column">
+
     <div class="card">
-      <img src="{% static 'projeto/images/kiko.png' %}" alt="Francisco" style="width:100%">
+     <div id="center">
+      <img src="{% static 'projeto/images/kiko.png' %}" alt="Francisco">
+      </div>
       <div class="container">
         <h2>Francisco Quintela</h2>
         <p class="title">Informática e Gestão de Empresas @ ISCTE</p>
@@ -46,5 +70,6 @@
   </div>
 </div>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 {% endblock %}

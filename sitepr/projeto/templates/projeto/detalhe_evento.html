@@ -1,18 +1,63 @@
 {% extends "projeto/base.html" %}
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/detalhe_evento.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/titles.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/button.css' %}" />
+{% endblock %}
 
 {% block content %}
 
+<div id="container">	
+	
+    <!-- Start	Product details -->
+        <div class="product-details">
+            
+            <!-- 	Nome Evento  -->
+        <h1>{{ evento.nome }}</h1>
+        <span class="hint-star star">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+        </span>
+            
+        
+    <!-- Info Evento  -->
+            <p class="information">{{ evento.descricao }}</p>
+            <p class="information">Organização: {{ evento.organizacao.nome }}</p>
+            <p class="information">Local: {{ evento.local }}</p>
+            <p class="information">Data: {{ evento.data }}</p>
 
-<h2>{{ evento.organizacao.nome }}</h2>
-<h3>{{ evento.nome }}</h3>
+            
+            
 
-<p> Descrição: {{evento.descricao}} </p>
+    <div class="control">
+       <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
 
-<p> Local: {{evento.local}} </p>
-
-<p> Data: {{evento.data}} </p>
-
-
+        
+    </div>
+                
+    </div>
+    <!-- 	Imagem e Info -->
+    
+    <div class="product-image">
+    
+        {% with "/static/projeto/users/"|add:evento.organizacao.img_name as imagem %}
+        <img src="{{ imagem }}" alt="Imagem Organização">
+        {% endwith %}
+    <!-- 	Descrição -->
+    <div class="info">
+        <h2>Sobre nós</h2>
+        <p>{{ evento.organizacao.descricao }}</p>
+    </div>
+    </div>
+    <!--  Fim Descrição  -->
+    
+    
+    </div>
+   
 {% endblock %}
+

@@ -1,3 +1,4 @@
+
 from django.contrib.auth.models import User
 from django.db import models
 import datetime
@@ -10,7 +11,7 @@ class Organizacao(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, )
     nome = models.CharField(max_length=200)
     descricao = models.CharField(max_length=1000)
-    avatar = models.ImageField(default='user_default.jpeg')
+    img_name = models.CharField(max_length=1000, default='default_user.jpg')
     is_organizacao = models.BooleanField(default=True)
     def __str__(self):
        return self.nome

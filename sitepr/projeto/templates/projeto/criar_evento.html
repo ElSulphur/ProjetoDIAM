@@ -1,26 +1,38 @@
 {% extends "projeto/base.html" %}
 
-{% block content %}
+{% load static %}
 
-<h1>Criar Evento</h1>
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/login.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/titles.css' %}" />
+{% endblock %}
+
+{% block content %}
+<title>Needins - Meus Eventos</title>
+
+<br></br>
+<br></br>
 <form action="{% url 'projeto:criar_evento' %}" method="post">
   {% csrf_token %}
-  <label for="nome_evento">Nome do Evento:</label>
-  <input type="text" id="nome_evento" name="nome_evento"><br>
-  <br>
-    <label for="descricao_evento"> Descrição: </label>
-    <input type="text" id="descricao_evento" name="descricao_evento"><br>
-<br>
-    <label for="local"> Local: </label>
-    <input type="text" id="local" name="local"><br>
-<br>
-     <label for="data"> Data: </label>
-    <input type="datetime-local" id="data" name="data"><br>
-<br>
+  <div class="box">
+  <h1 class="heading">Criar Evento</h1>
+  
+  <input type="text" placeholder="Nome Evento" id="nome_evento" name="nome_evento" class="email" />
+  <br></br>
+  <input type="text" placeholder="Descrição" id="descricao_evento" name="descricao_evento" style="height: 60px; width:250px" class="email">
+  <br></br>
+  <input type="text" placeholder="Local" id="local" name="local" class="email">
+  <br></br>
+  <input type="datetime-local" id="data" name="data" class="email"><br>
+  
+  {% if error_message %}
+  <p style="color: red"><strong>{{ error_message }}</strong></p>
+  {% endif %}
 
-
-
-  <input type="submit" value="Criar evento e voltar à lista de eventos">
+  <input type="submit" class="btn" value="Criar Evento">
+  
+    
+  </div> <!-- End Box -->    
 </form>
 
 {% endblock %}

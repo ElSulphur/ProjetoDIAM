@@ -1,49 +1,44 @@
-/* By Dominik Biedebach @domobch */
-
-body {
-  font-family: 'Roboto', sans-serif;
-  padding: 0;
-  margin: 0;
+html{
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-
-/* By Dominik Biedebach @domobch */
-
-
-
+body{
+  margin: 0;
+  background-color: #eee;
+}
 /* NAVIGATION */
 nav {
-  width: 100%;
-  margin: 0 auto;
-  background: #6bba61;
-  padding: 2px 0;
-  box-shadow: 0px 0px 0px #dedede;
+width: 100%;
+margin: 0;
+background: #6bba61;
+padding: 2px;
 }
 
 /* By Dominik Biedebach @domobch */
 nav ul {
-  list-style: none;
-  text-align: right;
+list-style: none;
+text-align: right;
+width: 100%;
 }
 nav ul li {
-  display: inline-block;
+display: inline-block;
 }
 nav ul li a {
-  display: block;
-  padding: 7px;
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin: 0 15px;
+display: block;
+padding: 7px;
+text-decoration: none;
+color: white;
+font-weight: 600;
+text-transform: uppercase;
+margin: 0 15px;
 }
 nav ul li a,
 nav ul li a:after,
 nav ul li a:before {
-  transition: all .5s;
+transition: all .5s;
 }
 nav ul li a:hover {
-  color: #D3D3D3;
+color: #D3D3D3;
 }
 
 /* By Dominik Biedebach @domobch */
@@ -52,21 +47,22 @@ nav ul li a:hover {
 /* stroke */
 nav.stroke ul li a,
 nav.fill ul li a {
-  position: relative;
+position: relative;
 }
 nav.stroke ul li a:after,
 nav.fill ul li a:after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 0%;
-  content: '.';
-  color: transparent;
-  background: #D3D3D3;
-  height: 1px;
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
+width: 0%;
+content: '.';
+color: transparent;
+background: #D3D3D3;
+height: 1px;
 }
 nav.stroke ul li a:hover:after {
-  width: 100%;
+width: 100%;
 }
+
