@@ -136,7 +136,7 @@ def registo(request):
             user.first_name = first_name
             user.last_name = last_name
             user.save()
-        return HttpResponseRedirect(reverse('projeto:index', ))
+        return HttpResponseRedirect(reverse('projeto:user_login', ))
     else:
         return render(request, 'projeto/registo.html')
 

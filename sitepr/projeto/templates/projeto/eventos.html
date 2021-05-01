@@ -3,7 +3,7 @@
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'projeto/eventos.css' %}" />
-
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/colunas.css' %}" />
 {% endblock %}
 
 
@@ -12,7 +12,8 @@
 
 <div class="row" style="background-color: #dfebe2">
     <div class="column" >
-    <h2 style="">{{ current_month }}</h2>
+    <h2 style="text-align:center;text-shadow: 1px 1px 3px #6bba61;">{{ current_month }}</h2>
+
     {% if current_month_list %}
     {% for evento in current_month_list %}
         <div class="container">
@@ -21,7 +22,7 @@
             {% endwith %}
             <p><span> {{ evento.nome }} - {{ evento.organizacao.nome }} </span></p>
             <p> {{ evento.data }} </p>
-            <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="buttoninfo"> Informações </a>
+            <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="btn"> Informações </a>
         </div>
     {% endfor %}
 
@@ -40,7 +41,7 @@
             {% endwith %}
             <p><span> {{ evento.nome }} - {{ evento.organizacao.nome }} </span></p>
             <p> {{ evento.data }} </p>
-            <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="buttoninfo"> Informações </a>
+            <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="btn"> Informações </a>
         </div>
     {% endfor %}
 
@@ -59,7 +60,7 @@
             {% endwith %}
             <p><span> {{ evento.nome }} - {{ evento.organizacao.nome }} </span></p>
             <p> {{ evento.data }} </p>
-            <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="buttoninfo"> Informações </a>
+            <a href="{%url 'projeto:detalhe_evento' evento.id %}" class="btn"> Informações </a>
         </div>
     {% endfor %}
 

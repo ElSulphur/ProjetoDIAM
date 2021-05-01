@@ -3,48 +3,42 @@
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'projeto/login.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/titles.css' %}" />
 {% endblock %}
 
 {% block content %}
-<title>Needins - Registo</title>
 
+<title>Needins - Registo</title>
+<br></br>
+<br></br>
 <form action="{% url 'projeto:registar_org' %}" method="post" enctype="multipart/form-data">
 
     {% csrf_token %}
-    <h2> Registo Organização </h2>
+    <div class="box">
+    <h1 class="heading">Registar como Organização</h1>
 
-    <input type="text" placeholder="Nome da Organização" id="name_org" name="name_org" required oninvalid="this.setCustomValidity('Este campo é obrigatório.')" oninput="this.setCustomValidity('')">
-
-
-    <input type="text" placeholder="Descrição da Organização" id="bio" name="bio" required oninvalid="this.setCustomValidity('Este campo é obrigatório.')" oninput="this.setCustomValidity('')">
-    <br>
-
-    <input type="text" placeholder="Username" id="username"  name="username" required oninvalid="this.setCustomValidity('Este campo é obrigatório.')" oninput="this.setCustomValidity('')"/>
-
-
-    <input type="email" placeholder="e-mail@gmail.com" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninvalid="this.setCustomValidity('Este campo é obrigatório.')" oninput="this.setCustomValidity('')">
-    <br>
-
-    <input type="password" placeholder="Insere a Palavra-passe" id="password" name="password" required oninvalid="this.setCustomValidity('Este campo é obrigatório')" oninput="this.setCustomValidity('')">
-
-
-    <input type="password" placeholder="Confirma a Palavra-passe" id="confirm_password" name="confirm_password" required oninvalid="this.setCustomValidity('Este campo é obrigatório')" oninput="this.setCustomValidity('')">
-    <br>
-
-    <input type="file"  id="img" name="img" accept="image/*" required>
-     <br>
-
-
+    <input type="text" placeholder="Nome da Organização" id="name_org" name="name_org" required oninvalid="this.setCustomValidity('Este campo é obrigatório.')" oninput="this.setCustomValidity('')" class="email" >
+    <br></br>
+    <input type="text" placeholder="Descrição da Organização" id="bio" name="bio" required oninvalid="this.setCustomValidity('Este campo é obrigatório.')" oninput="this.setCustomValidity('')" class="email">
+    <br></br>
+    <input type="text" placeholder="Username" id="username"  name="username" required oninvalid="this.setCustomValidity('Este campo é obrigatório.')" oninput="this.setCustomValidity('')"  class="email"/>
+    <br></br>
+    <input type="email" placeholder="e-mail@gmail.com" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninvalid="this.setCustomValidity('Este campo é obrigatório. Preencha como no exemplo.')" oninput="this.setCustomValidity('')" class="email" >
+    <br></br>
+    <input type="password" placeholder="Insere a Palavra-passe" id="password" name="password" required oninvalid="this.setCustomValidity('Este campo é obrigatório')" oninput="this.setCustomValidity('')" class="email" >
+    <br></br>
+    <input type="password" placeholder="Confirma a Palavra-passe" id="confirm_password" name="confirm_password" required oninvalid="this.setCustomValidity('Este campo é obrigatório')" oninput="this.setCustomValidity('')" class="email" >
+    <br></br>
+    <p style="font-size: 17px;">Insere uma imagem:</p>
+    <input type="file" id="img" name="img" accept="image/*" required>
     {% if error_message %}
     <p style="color: red"><strong>{{ error_message }}</strong></p>
     {% endif %}
 
+    <input type="submit" class="btn" value="Continuar">
 
 
-    <input type="submit" class="registerbtn" value="Continuar">
-
-
+    </div> <!-- End Box -->
 </form>
-
 
 {% endblock %}

@@ -11,24 +11,27 @@
 <title>Needins - Parceiros</title>
 
 <h1 style="text-align:center;text-shadow: 1px 1px 3px #6bba61;">Parceiros</h1>
+
 <br></br>
+
+
 {% if org_list %}
 {% for organizacao in org_list %}
-
-<div class="row" style="background-color:#dfebe2">
+<div class="back">
     <div class="column">
+
         <div class="card">
-        <div id="center">
-        {% with "/static/projeto/users/"|add:organizacao.img_name as imagem %}
-        <img src="{{ imagem }}" alt="Avatar">
-        {% endwith %}
-        </div>
-        <div class="container">
-            <h2>{{ organizacao.nome }}</h2>
-            <p>{{ organizacao.descricao }}</p>
-            <p>{{ organizacao.user.email }}</p>
-            <p><a href = "mailto:{{ organizacao.user.email }}?subject = Feedback&body = Message" class="button">Contacto</a></p>
-        </div>
+            <div id="center">
+                {% with "/static/projeto/users/"|add:organizacao.img_name as imagem %}
+                <img src="{{ imagem }}" alt="Avatar">
+                {% endwith %}
+            </div>
+            <div class="container">
+                <h2>{{ organizacao.nome }}</h2>
+                <p>{{ organizacao.descricao }}</p>
+                <p>{{ organizacao.user.email }}</p>
+                <p><a href = "mailto:{{ organizacao.user.email }}?subject = Feedback&body = Message" class="button">Contacto</a></p>
+            </div>
         </div>
   </div>
 </div>

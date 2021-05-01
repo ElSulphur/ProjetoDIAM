@@ -1,23 +1,70 @@
+
 {% extends "projeto/base.html" %}
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/eventos.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/detalhe_evento.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'projeto/titles.css' %}" />
+{% endblock %}
 
 {% block content %}
 
 
-<h2>{{ evento.organizacao.nome }}</h2>
-<h3>{{ evento.nome }}</h3>
 
-<p> Descrição: {{evento.descricao}} </p>
+<div id="container">
 
-<p> Local: {{evento.local}} </p>
+    <!-- Start	Product details -->
+        <div class="product-details">
 
-<p> Data: {{evento.data}} </p>
+            <!-- 	Nome Evento  -->
+        <h1 class="heading">{{ evento.nome }}</h1>
+        <span class="hint-star star">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+        </span>
 
-{% if user.is_authenticated and user.organizacao.is_organizacao %}
-<p>
- <a href="{%url 'projeto:apagar_evento' evento.id %}" class="button5" style="background-color:red"> Apagar Evento </a>
-</p>
+
+    <!-- Info Evento  -->
+            <p class="information">{{ evento.descricao }}</p>
+            <p class="information">Organização: {{ evento.organizacao.nome }}</p>
+            <p class="information">Local: {{ evento.local }}</p>
+            <p class="information">Data: {{ evento.data }}</p>
+            {% if user.is_authenticated and user.organizacao.is_organizacao %}
+
+
+
+    <div class="control">
+       <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+
+
+    </div>
+
+    </div>
+
+    <!-- 	Imagem e Info -->
+
+    <div class="product-image">
+        {% with "/static/projeto/users/"|add:user.organizacao.img_name as imagem %}
+        <img src="{{ imagem }}" alt="Imagem Organização">
+        {% endwith %}
+    <!-- 	Descrição -->
+    <div class="info">
+        <h3>Sobre nós</h3>
+        <p>{{ user.organizacao.descricao }}</p>
+        <br></br>
+        <a href="{%url 'projeto:apagar_evento' evento.id %}" class="button5" style="background-color:red"> Apagar Evento </a>
+
+    </div>
+    </div>
+    <!--  Fim Descrição  -->
+
+
+    </div>
+
 {% endif %}
 
 {% endblock %}
