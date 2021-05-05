@@ -2,33 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d118a07-f89c-4848-b44c-dfe2c7ac2c34" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sitepr/projeto/static/projeto/images/imagem1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitepr/projeto/static/projeto/images/imagem2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitepr/projeto/static/projeto/images/imagem3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitepr/projeto/static/projeto/images/needinslogo2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitepr/projeto/static/projeto/images/user.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitepr/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitepr/projeto/static/projeto/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/static/projeto/button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/static/projeto/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/static/projeto/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/static/projeto/images/logo needins.png" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/static/projeto/images/logo needins.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/static/projeto/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/static/projeto/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/static/projeto/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/static/projeto/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/static/projeto/parceiros.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/static/projeto/parceiros.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/static/projeto/sobre_nos.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/static/projeto/sobre_nos.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/apagar_evento.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/apagar_evento.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/criar_evento.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/criar_evento.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/detalhe_evento.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/detalhe_evento.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/eventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/eventos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/meus_eventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/meus_eventos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/parceiros.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/parceiros.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/registar_organizacao.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/registar_organizacao.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/registo.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/registo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/sobre_nos.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/templates/projeto/sobre_nos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitepr/projeto/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitepr/projeto/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
